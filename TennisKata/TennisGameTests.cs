@@ -5,7 +5,15 @@ namespace TennisKata
     [TestClass]
     public class TennisGameTests
     {
-        private TennisGame tennisGame = new TennisGame();
+        private const string FirstPlayerName = "Joey";
+        private const string SecondPlayerName = "Mary";
+        private TennisGame tennisGame;
+
+        [TestInitialize]
+        public void TestInit()
+        {
+            this.tennisGame = new TennisGame(FirstPlayerName, SecondPlayerName);
+        }
 
         [TestMethod]
         public void Love_All()
@@ -53,6 +61,13 @@ namespace TennisKata
         {
             SetPlayer2ScoreTimes(3);
             ScoreShouldBe("Love Forty");
+        }
+
+        [TestMethod]
+        public void FirstPlayer_Win()
+        {
+            SetPlayer1ScoreTimes(4);
+            ScoreShouldBe("Joey Win");
         }
 
         private void SetPlayer2ScoreTimes(int times)
