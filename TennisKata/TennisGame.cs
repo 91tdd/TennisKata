@@ -34,7 +34,14 @@ namespace TennisKata
 
             if (this._player2ScoreTimes > 0)
             {
-                score = "Love Fifteen";
+                if (this._player2ScoreTimes == 1)
+                {
+                    score = "Love Fifteen";
+                }
+                else if (this._player2ScoreTimes == 2)
+                {
+                    score = "Love Thirty";
+                }
             }
 
             if (this._player1ScoreTimes > 0)
@@ -50,8 +57,6 @@ namespace TennisKata
         private string GetPlayer1Score()
 
         {
-            ;
-
             return scoresLookup[this._player1ScoreTimes];
         }
     }
