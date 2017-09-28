@@ -1,4 +1,6 @@
-﻿namespace TennisKata
+﻿using System.Collections.Generic;
+
+namespace TennisKata
 {
     public class TennisGame
     {
@@ -30,20 +32,14 @@
 
         private string GetPlayer1Score()
         {
-            var player1Score = "";
-            if (this._player1ScoreTimes == 1)
+            var scoresLookup = new Dictionary<int, string>()
             {
-                player1Score = "Fifteen";
-            }
-            else if (this._player1ScoreTimes == 2)
-            {
-                player1Score = "Thirty";
-            }
-            else if (this._player1ScoreTimes == 3)
-            {
-                player1Score = "Forty";
-            }
-            return player1Score;
+                {1, "Fifteen"},
+                {2, "Thirty"},
+                {3, "Forty"},
+            };
+
+            return scoresLookup[this._player1ScoreTimes];
         }
 
         public void Player1Score()
