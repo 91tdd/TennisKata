@@ -14,6 +14,10 @@
             {
                 return "Thirty Love" ;
             }
+            else if (this._player1ScoreTimes == 3)
+            {
+                return "Forty Love";
+            }
 
             return "Love All";
         }
