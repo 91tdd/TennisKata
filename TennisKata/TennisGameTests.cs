@@ -16,17 +16,25 @@ namespace TennisKata
         [TestMethod]
         public void Fifteen_Love()
         {
-            tennisGame.Player1Score();
+            SetPlayer1ScoreTimes(1);
             ScoreShouldBe("Fifteen Love");
         }
 
         [TestMethod]
         public void Thirty_Love()
         {
-            tennisGame.Player1Score();
-            tennisGame.Player1Score();
+            SetPlayer1ScoreTimes(2);
             ScoreShouldBe("Thirty Love");
         }
+
+        private void SetPlayer1ScoreTimes(int times)
+        {
+            for (int i = 0; i < times; i++)
+            {
+                tennisGame.Player1Score();
+            }
+        }
+
         private void ScoreShouldBe(string expected)
         {
             Assert.AreEqual(expected, tennisGame.ShowScore());
