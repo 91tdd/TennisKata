@@ -7,6 +7,23 @@ namespace TennisKata
         private int _player1ScoreTimes;
         private int _player2ScoreTimes;
 
+        private Dictionary<int, string> scoresLookup = new Dictionary<int, string>()
+        {
+            {1, "Fifteen"},
+            {2, "Thirty"},
+            {3, "Forty"},
+        };
+
+        public void Player1Score()
+        {
+            this._player1ScoreTimes++;
+        }
+
+        public void Player2Score()
+        {
+            this._player2ScoreTimes++;
+        }
+
         public string ShowScore()
         {
             var score = "";
@@ -31,25 +48,11 @@ namespace TennisKata
         }
 
         private string GetPlayer1Score()
+
         {
-            var scoresLookup = new Dictionary<int, string>()
-            {
-                {1, "Fifteen"},
-                {2, "Thirty"},
-                {3, "Forty"},
-            };
+            ;
 
             return scoresLookup[this._player1ScoreTimes];
-        }
-
-        public void Player1Score()
-        {
-            this._player1ScoreTimes++;
-        }
-
-        public void Player2Score()
-        {
-            this._player2ScoreTimes++;
         }
     }
 }
