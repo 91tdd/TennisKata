@@ -40,18 +40,7 @@ namespace TennisKata
 
         private string GetPlayer2Score()
         {
-            if (this._player2ScoreTimes == 1)
-            {
-                return "Fifteen";
-            }
-            else if (this._player2ScoreTimes == 2)
-            {
-                return "Thirty";
-            }
-            else
-            {
-                return "Love";
-            }
+            return scoresLookup[this._player2ScoreTimes];
         }
 
         private string GetPlayer1Score()
