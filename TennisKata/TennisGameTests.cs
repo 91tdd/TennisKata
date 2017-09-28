@@ -34,6 +34,13 @@ namespace TennisKata
             ScoreShouldBe("Forty Love");
         }
 
+        [TestMethod]
+        public void Love_Fifteen()
+        {
+            tennisGame.Player2Score();
+            ScoreShouldBe("Love Fifteen");
+        }
+
         private void SetPlayer1ScoreTimes(int times)
         {
             for (int i = 0; i < times; i++)

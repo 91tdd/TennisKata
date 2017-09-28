@@ -38,5 +38,10 @@
         {
             this._player1ScoreTimes++;
         }
+
+        public void Player2Score()
+        {
+            throw new System.NotImplementedException();
+        }
     }
 }
