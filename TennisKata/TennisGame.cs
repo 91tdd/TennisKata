@@ -8,10 +8,14 @@
         public string ShowScore()
         {
             var score = "";
+            if (this._player1ScoreTimes == 0 && this._player2ScoreTimes == 0)
+            {
+                score = "Love All";
+            }
 
             if (this._player2ScoreTimes > 0)
             {
-                return "Love Fifteen";
+                score = "Love Fifteen";
             }
 
             if (this._player1ScoreTimes > 0)
@@ -20,10 +24,7 @@
 
                 score = player1Score + " Love";
             }
-            else
-            {
-                score = "Love All";
-            }
+
             return score;
         }
 
