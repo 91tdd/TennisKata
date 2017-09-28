@@ -9,6 +9,7 @@ namespace TennisKata
 
         private Dictionary<int, string> scoresLookup = new Dictionary<int, string>()
         {
+            {0, "Love"},
             {1, "Fifteen"},
             {2, "Thirty"},
             {3, "Forty"},
@@ -26,32 +27,31 @@ namespace TennisKata
 
         public string ShowScore()
         {
-            var score = "";
             if (this._player1ScoreTimes == 0 && this._player2ScoreTimes == 0)
             {
-                score = "Love All";
+                return "Love All";
             }
 
-            if (this._player2ScoreTimes > 0)
+            var player1Score = GetPlayer1Score();
+            var player2Score = GetPlayer2Score();
+
+            return player1Score + " " + player2Score;
+        }
+
+        private string GetPlayer2Score()
+        {
+            if (this._player2ScoreTimes == 1)
             {
-                if (this._player2ScoreTimes == 1)
-                {
-                    score = "Love Fifteen";
-                }
-                else if (this._player2ScoreTimes == 2)
-                {
-                    score = "Love Thirty";
-                }
+                return "Fifteen";
             }
-
-            if (this._player1ScoreTimes > 0)
+            else if (this._player2ScoreTimes == 2)
             {
-                var player1Score = GetPlayer1Score();
-
-                score = player1Score + " Love";
+                return "Thirty";
             }
-
-            return score;
+            else
+            {
+                return "Love";
+            }
         }
 
         private string GetPlayer1Score()
