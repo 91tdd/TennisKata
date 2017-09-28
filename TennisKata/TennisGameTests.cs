@@ -6,12 +6,17 @@ namespace TennisKata
     [TestClass]
     public class TennisGameTests
     {
+        TennisGame tennisGame = new TennisGame();
+
         [TestMethod]
         public void Love_All()
         {
-            var tennisGame = new TennisGame();
-            string result = tennisGame.ShowScore();
-            Assert.AreEqual("Love All", result);
+            ScoreShouldBe("Love All");
+        }
+
+        private void ScoreShouldBe(string expected)
+        {
+            Assert.AreEqual(expected, tennisGame.ShowScore());
         }
     }
 
@@ -19,7 +24,7 @@ namespace TennisKata
     {
         public string ShowScore()
         {
-            throw new NotImplementedException();
+            return "Love All";
         }
     }
 }
