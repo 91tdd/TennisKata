@@ -1,12 +1,11 @@
-﻿using System;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace TennisKata
 {
     [TestClass]
     public class TennisGameTests
     {
-        TennisGame tennisGame = new TennisGame();
+        private TennisGame tennisGame = new TennisGame();
 
         [TestMethod]
         public void Love_All()
@@ -14,17 +13,16 @@ namespace TennisKata
             ScoreShouldBe("Love All");
         }
 
+        [TestMethod]
+        public void Fifteen_Love()
+        {
+            tennisGame.Player1Score();
+            ScoreShouldBe("Fifteen Love");
+        }
+
         private void ScoreShouldBe(string expected)
         {
             Assert.AreEqual(expected, tennisGame.ShowScore());
-        }
-    }
-
-    public class TennisGame
-    {
-        public string ShowScore()
-        {
-            return "Love All";
         }
     }
 }
