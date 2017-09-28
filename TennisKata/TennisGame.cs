@@ -3,17 +3,28 @@
     public class TennisGame
     {
         private int _player1ScoreTimes;
+        private int _player2ScoreTimes;
 
         public string ShowScore()
         {
+            var score = "";
+
+            if (this._player2ScoreTimes > 0)
+            {
+                return "Love Fifteen";
+            }
+
             if (this._player1ScoreTimes > 0)
             {
                 var player1Score = GetPlayer1Score();
 
-                return player1Score + " Love";
+                score = player1Score + " Love";
             }
-
-            return "Love All";
+            else
+            {
+                score = "Love All";
+            }
+            return score;
         }
 
         private string GetPlayer1Score()
@@ -41,7 +52,7 @@
 
         public void Player2Score()
         {
-            throw new System.NotImplementedException();
+            this._player2ScoreTimes++;
         }
     }
 }
