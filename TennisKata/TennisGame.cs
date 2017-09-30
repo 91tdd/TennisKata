@@ -37,16 +37,15 @@ namespace TennisKata
         {
             if (this._player1ScoreTimes == 1 && this._player2ScoreTimes == 1)
             {
-                return "Fifteen All";
+                return "Fifteen" + " All";
             }
             else if (this._player1ScoreTimes == 2 && this._player2ScoreTimes == 2)
             {
-                return "Thirty All";
+                return "Thirty" + " All";
             }
-
-            if (this._player1ScoreTimes == 0 && this._player2ScoreTimes == 0)
+            else if (this._player1ScoreTimes == 0 && this._player2ScoreTimes == 0)
             {
-                return "Love All";
+                return "Love" + " All";
             }
 
             if (_player1ScoreTimes == 4)
