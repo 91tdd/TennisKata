@@ -35,6 +35,11 @@ namespace TennisKata
 
         public string ShowScore()
         {
+            if (this._player1ScoreTimes == 1 && this._player2ScoreTimes == 1)
+            {
+                return "Fifteen All";
+            }
+
             if (this._player1ScoreTimes == 0 && this._player2ScoreTimes == 0)
             {
                 return "Love All";
@@ -57,7 +62,6 @@ namespace TennisKata
         }
 
         private string GetPlayer1Score()
-
         {
             return scoresLookup[this._player1ScoreTimes];
         }
