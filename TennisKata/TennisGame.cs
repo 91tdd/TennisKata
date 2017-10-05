@@ -35,17 +35,10 @@ namespace TennisKata
 
         public string ShowScore()
         {
-            if (this._player1ScoreTimes == 1 && this._player2ScoreTimes == 1)
+            if (this._player1ScoreTimes == this._player2ScoreTimes)
             {
-                return "Fifteen" + " All";
-            }
-            else if (this._player1ScoreTimes == 2 && this._player2ScoreTimes == 2)
-            {
-                return "Thirty" + " All";
-            }
-            else if (this._player1ScoreTimes == 0 && this._player2ScoreTimes == 0)
-            {
-                return "Love" + " All";
+                var score = scoresLookup[this._player1ScoreTimes];
+                return $"{score} All";
             }
 
             if (_player1ScoreTimes == 4)
