@@ -37,6 +37,11 @@ namespace TennisKata
         {
             if (this._player1ScoreTimes == this._player2ScoreTimes)
             {
+                if (this._player1ScoreTimes == 3)
+                {
+                    return "Deuce";
+                }
+
                 var score = scoresLookup[this._player1ScoreTimes];
                 return $"{score} All";
             }
