@@ -36,66 +36,49 @@ namespace TennisKata
 
         public string ShowScore()
         {
-            if (this._player1ScoreTimes == this._player2ScoreTimes)
+            if (IsSameScore())
             {
-                if (this._player1ScoreTimes >= 3)
+                if (_player1ScoreTimes >= 3)
                 {
                     return "Deuce";
                 }
 
-                var score = scoresLookup[this._player1ScoreTimes];
-                return $"{score} All";
+                return $"{scoresLookup[_player1ScoreTimes]} All";
             }
 
-            if (_player2ScoreTimes >= 3 && _player1ScoreTimes >= 3)
+            if (IsSomeoneReadyForWin())
             {
-                if (Math.Abs(_player2ScoreTimes - _player1ScoreTimes) == 1)
-                {
-                    var playerName = _player2ScoreTimes > _player1ScoreTimes ? _secondPlayerName : _firstPlayerName;
-                    return $"{playerName} Adv";
-                }
+                var scoreTimesDiff = Math.Abs(_player2ScoreTimes - _player1ScoreTimes);
 
-                if (Math.Abs(_player2ScoreTimes - _player1ScoreTimes) == 2)
-                {
-                    var playerName = _player2ScoreTimes > _player1ScoreTimes ? _secondPlayerName : _firstPlayerName;
-                    return $"{playerName} Win";
-                }
+                return $"{GetCandidiatePlayerName()} {(scoreTimesDiff == 1 ? "Adv" : "Win")}";
             }
 
-            if (_player1ScoreTimes == 4)
-            {
-                return this._firstPlayerName + " Win";
-            }
-
-            if (_player2ScoreTimes == 4)
-            {
-                return this._secondPlayerName + " Win";
-            }
-
-            var player1Score = GetPlayer1Score();
-            var player2Score = GetPlayer2Score();
-
-            return player1Score + " " + player2Score;
+            return $"{GetPlayer1Score()} {GetPlayer2Score()}";
         }
 
-        private bool IsPlayer1Adv()
+        private bool IsSomeoneReadyForWin()
         {
-            return _player1ScoreTimes > 3 && _player1ScoreTimes - _player2ScoreTimes == 1;
+            return _player2ScoreTimes >= 4 || _player1ScoreTimes >= 4;
         }
 
-        private bool IsPlayer2Adv()
+        private bool IsSameScore()
         {
-            return _player2ScoreTimes > 3 && _player2ScoreTimes - _player1ScoreTimes == 1;
+            return _player1ScoreTimes == _player2ScoreTimes;
+        }
+
+        private string GetCandidiatePlayerName()
+        {
+            return _player2ScoreTimes > _player1ScoreTimes ? _secondPlayerName : _firstPlayerName;
         }
 
         private string GetPlayer2Score()
         {
-            return scoresLookup[this._player2ScoreTimes];
+            return scoresLookup[_player2ScoreTimes];
         }
 
         private string GetPlayer1Score()
         {
-            return scoresLookup[this._player1ScoreTimes];
+            return scoresLookup[_player1ScoreTimes];
         }
     }
 }
