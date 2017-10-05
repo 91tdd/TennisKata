@@ -46,14 +46,10 @@ namespace TennisKata
                 return $"{score} All";
             }
 
-            if (_player2ScoreTimes > 3 && _player2ScoreTimes - _player1ScoreTimes == 1)
+            if (IsPlayer2Adv() || IsPlayer1Adv())
             {
-                return _secondPlayerName + " Adv";
-            }
-
-            if (_player1ScoreTimes > 3 && _player1ScoreTimes - _player2ScoreTimes == 1)
-            {
-                return _firstPlayerName + " Adv";
+                var playerName = IsPlayer2Adv() ? _secondPlayerName : _firstPlayerName;
+                return $"{playerName} Adv";
             }
 
             if (_player1ScoreTimes == 4)
@@ -70,6 +66,16 @@ namespace TennisKata
             var player2Score = GetPlayer2Score();
 
             return player1Score + " " + player2Score;
+        }
+
+        private bool IsPlayer1Adv()
+        {
+            return _player1ScoreTimes > 3 && _player1ScoreTimes - _player2ScoreTimes == 1;
+        }
+
+        private bool IsPlayer2Adv()
+        {
+            return _player2ScoreTimes > 3 && _player2ScoreTimes - _player1ScoreTimes == 1;
         }
 
         private string GetPlayer2Score()
