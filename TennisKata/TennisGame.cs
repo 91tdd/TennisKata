@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace TennisKata
 {
@@ -46,10 +47,13 @@ namespace TennisKata
                 return $"{score} All";
             }
 
-            if (IsPlayer2Adv() || IsPlayer1Adv())
+            if (_player2ScoreTimes >= 3 && _player1ScoreTimes >= 3)
             {
-                var playerName = IsPlayer2Adv() ? _secondPlayerName : _firstPlayerName;
-                return $"{playerName} Adv";
+                if (Math.Abs(_player2ScoreTimes - _player1ScoreTimes) == 1)
+                {
+                    var playerName = _player2ScoreTimes > _player1ScoreTimes ? _secondPlayerName : _firstPlayerName;
+                    return $"{playerName} Adv";
+                }
             }
 
             if (_player1ScoreTimes == 4)
