@@ -63,7 +63,6 @@ namespace TennisKata
             ScoreShouldBe("Love Forty");
         }
 
-
         [TestMethod]
         public void Fifteen_All()
         {
@@ -85,6 +84,13 @@ namespace TennisKata
         {
             SetPlayer1ScoreTimes(4);
             ScoreShouldBe("Joey Win");
+        }
+
+        [TestMethod]
+        public void SecondPlayer_Win()
+        {
+            SetPlayer2ScoreTimes(4);
+            ScoreShouldBe("Mary Win");
         }
 
         private void SetPlayer2ScoreTimes(int times)
