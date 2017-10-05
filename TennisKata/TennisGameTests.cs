@@ -94,13 +94,20 @@ namespace TennisKata
         }
 
         [TestMethod]
-        public void Deuce()
+        public void Deuce_forty_forty()
         {
             SetPlayer1ScoreTimes(3);
             SetPlayer2ScoreTimes(3);
             ScoreShouldBe("Deuce");
         }
 
+        [TestMethod]
+        public void Deuce_4_4()
+        {
+            SetPlayer1ScoreTimes(4);
+            SetPlayer2ScoreTimes(4);
+            ScoreShouldBe("Deuce");
+        }
         private void SetPlayer2ScoreTimes(int times)
         {
             for (int i = 0; i < times; i++)
