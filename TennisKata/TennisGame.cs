@@ -46,6 +46,11 @@ namespace TennisKata
                 return this._firstPlayerName + " Win";
             }
 
+            if (_player2ScoreTimes == 4)
+            {
+                return this._secondPlayerName + " Win";
+            }
+
             var player1Score = GetPlayer1Score();
             var player2Score = GetPlayer2Score();
 
