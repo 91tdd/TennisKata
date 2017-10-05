@@ -125,6 +125,14 @@ namespace TennisKata
             ScoreShouldBe("Mary Adv");
         }
 
+        [TestMethod]
+        public void Player1_Win_Aftere_Adv_5_3()
+        {
+            SetPlayer1ScoreTimes(5);
+            SetPlayer2ScoreTimes(3);
+            ScoreShouldBe("Joey Win");
+        }
+
         private void SetPlayer2ScoreTimes(int times)
         {
             for (int i = 0; i < times; i++)
