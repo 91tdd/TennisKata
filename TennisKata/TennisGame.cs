@@ -26,12 +26,12 @@ namespace TennisKata
 
         public void Player1Score()
         {
-            this._player1ScoreTimes++;
+            _player1ScoreTimes++;
         }
 
         public void Player2Score()
         {
-            this._player2ScoreTimes++;
+            _player2ScoreTimes++;
         }
 
         public string ShowScore()
