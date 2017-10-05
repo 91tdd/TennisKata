@@ -108,6 +108,7 @@ namespace TennisKata
             SetPlayer2ScoreTimes(4);
             ScoreShouldBe("Deuce");
         }
+
         private void SetPlayer2ScoreTimes(int times)
         {
             for (int i = 0; i < times; i++)
