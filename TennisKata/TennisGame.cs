@@ -46,6 +46,11 @@ namespace TennisKata
                 return $"{score} All";
             }
 
+            if (_player2ScoreTimes > 3 && _player2ScoreTimes - _player1ScoreTimes == 1)
+            {
+                return _secondPlayerName + " Adv";
+            }
+
             if (_player1ScoreTimes > 3 && _player1ScoreTimes - _player2ScoreTimes == 1)
             {
                 return _firstPlayerName + " Adv";
