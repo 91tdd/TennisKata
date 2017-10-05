@@ -54,6 +54,12 @@ namespace TennisKata
                     var playerName = _player2ScoreTimes > _player1ScoreTimes ? _secondPlayerName : _firstPlayerName;
                     return $"{playerName} Adv";
                 }
+
+                if (Math.Abs(_player2ScoreTimes - _player1ScoreTimes) == 2)
+                {
+                    var playerName = _player2ScoreTimes > _player1ScoreTimes ? _secondPlayerName : _firstPlayerName;
+                    return $"{playerName} Win";
+                }
             }
 
             if (_player1ScoreTimes == 4)

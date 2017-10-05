@@ -125,7 +125,6 @@ namespace TennisKata
             ScoreShouldBe("Mary Adv");
         }
 
-        [Ignore]
         [TestMethod]
         public void Player1_Win_Aftere_Adv_5_3()
         {
